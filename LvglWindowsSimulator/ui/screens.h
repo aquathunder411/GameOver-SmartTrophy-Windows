@@ -11,12 +11,8 @@ typedef struct _objects_t {
     lv_obj_t *videos_select_screen;
     lv_obj_t *videos_player_screen;
     lv_obj_t *main_screen;
-    lv_obj_t *main_menu;
-    lv_obj_t *obj0;
-    lv_obj_t *video_thumbail;
-    lv_obj_t *obj1;
     lv_obj_t *main_menu_1;
-    lv_obj_t *obj2;
+    lv_obj_t *obj0;
     lv_obj_t *video;
 } objects_t;
 
