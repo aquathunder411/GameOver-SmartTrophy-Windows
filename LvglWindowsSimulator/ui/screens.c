@@ -104,7 +104,8 @@ void create_screen_videos_player_screen() {
     lv_obj_set_pos(obj, 0, 0);
     lv_obj_set_size(obj, 800, 480);
     lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_border_opa(obj, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_add_event_cb(obj, action_play_video, LV_EVENT_SCREEN_LOADED, (void *)0);
 
     {
@@ -149,11 +150,6 @@ void create_screen_videos_player_screen() {
                     }
                 }
             }
-        }
-        {
-            lv_obj_t *obj = lv_canvas_create(parent_obj);
-            lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 800, 480);
         }
     }
     
@@ -221,9 +217,9 @@ void tick_user_widget_video_buttons(int startWidgetIndex) {
 
 typedef void (*tick_screen_func_t)();
 tick_screen_func_t tick_screen_funcs[] = {
+    tick_screen_videos_player_screen,
     tick_screen_main_menu_screen,
     tick_screen_videos_select_screen,
-    tick_screen_videos_player_screen,
 };
 void tick_screen(int screen_index) {
     tick_screen_funcs[screen_index]();
@@ -237,7 +233,7 @@ void create_screens() {
     lv_theme_t *theme = lv_theme_default_init(dispp, lv_palette_main(LV_PALETTE_BLUE), lv_palette_main(LV_PALETTE_RED), false, LV_FONT_DEFAULT);
     lv_disp_set_theme(dispp, theme);
     
+    create_screen_videos_player_screen();
     create_screen_main_menu_screen();
     create_screen_videos_select_screen();
-    create_screen_videos_player_screen();
 }

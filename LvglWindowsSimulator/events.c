@@ -166,7 +166,7 @@ NULL // Sentinel value to indicate the end of the playlist
 void action_play_video(lv_event_t* e)
 {
     
-    static lv_obj_t* player = lv_ffmpeg_player_create(lv_screen_active());
+    lv_obj_t* player = lv_ffmpeg_player_create(lv_layer_bottom());
     sprintf(filePathBuffer, "%s%s", ".\\ui\\video\\", playlist[current_video_index]);
         
     lv_ffmpeg_player_set_src(player, filePathBuffer);
