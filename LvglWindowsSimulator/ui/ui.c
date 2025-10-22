@@ -46,7 +46,7 @@ void loadScreen(enum ScreensEnum screenId) {
 
 void ui_init() {
     create_screens();
-    loadScreen(SCREEN_ID_VIDEOS_SELECT_SCREEN);
+    loadScreen(SCREEN_ID_MAIN_MENU_SCREEN);
 
 }
 

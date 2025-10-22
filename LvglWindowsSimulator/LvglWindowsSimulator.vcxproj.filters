@@ -4030,6 +4030,7 @@
     <ClCompile Include="ui\styles.c" />
     <ClCompile Include="ui\ui.c" />
     <ClCompile Include="events.c" />
+    <ClCompile Include="ui\images\logo.c" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="freetype">

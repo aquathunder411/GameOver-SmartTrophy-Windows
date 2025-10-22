@@ -8,30 +8,29 @@ extern "C" {
 #endif
 
 typedef struct _objects_t {
+    lv_obj_t *main_menu_screen;
     lv_obj_t *videos_select_screen;
     lv_obj_t *videos_player_screen;
-    lv_obj_t *main_screen;
     lv_obj_t *main_menu_1;
     lv_obj_t *obj0;
-    lv_obj_t *video;
 } objects_t;
 
 extern objects_t objects;
 
 enum ScreensEnum {
-    SCREEN_ID_VIDEOS_SELECT_SCREEN = 1,
-    SCREEN_ID_VIDEOS_PLAYER_SCREEN = 2,
-    SCREEN_ID_MAIN_SCREEN = 3,
+    SCREEN_ID_MAIN_MENU_SCREEN = 1,
+    SCREEN_ID_VIDEOS_SELECT_SCREEN = 2,
+    SCREEN_ID_VIDEOS_PLAYER_SCREEN = 3,
 };
+
+void create_screen_main_menu_screen();
+void tick_screen_main_menu_screen();
 
 void create_screen_videos_select_screen();
 void tick_screen_videos_select_screen();
 
 void create_screen_videos_player_screen();
 void tick_screen_videos_player_screen();
-
-void create_screen_main_screen();
-void tick_screen_main_screen();
 
 void create_user_widget_video_buttons(lv_obj_t *parent_obj, int startWidgetIndex);
 void tick_user_widget_video_buttons(int startWidgetIndex);

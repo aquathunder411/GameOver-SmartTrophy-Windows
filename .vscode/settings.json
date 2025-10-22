@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "images.h": "c",
+        "lvgl.h": "c"
+    }
+}
