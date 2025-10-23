@@ -657,6 +657,7 @@
     <ClInclude Include="ui\fonts.h" />
     <ClInclude Include="ui\images.h" />
     <ClInclude Include="ui\screens.h" />
+    <ClInclude Include="ui\screen_events\events_main_menu_screen.h" />
     <ClInclude Include="ui\structs.h" />
     <ClInclude Include="ui\styles.h" />
     <ClInclude Include="ui\ui.h" />
@@ -3657,6 +3658,7 @@
     <ClCompile Include="ui\images\ui_image_video_button.c" />
     <ClCompile Include="ui\mpegPlayer.c" />
     <ClCompile Include="ui\screens.c" />
+    <ClCompile Include="ui\screen_events\events_main_menu_screen.c" />
     <ClCompile Include="ui\styles.c" />
     <ClCompile Include="ui\ui.c" />
   </ItemGroup>

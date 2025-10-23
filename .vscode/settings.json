@@ -3,6 +3,9 @@
         "images.h": "c",
         "lvgl.h": "c",
         "events.h": "c",
-        "ui.h": "c"
+        "ui.h": "c",
+        "styles.h": "c",
+        "vars.h": "c",
+        "actions.h": "c"
     }
 }

@@ -17,6 +17,7 @@ extern void action_osd_play(lv_event_t * e);
 extern void action_osd_pause(lv_event_t * e);
 extern void action_osd_stop(lv_event_t * e);
 
+extern void action_check_wifi_status(lv_event_t * e);
 
 #ifdef __cplusplus
 }

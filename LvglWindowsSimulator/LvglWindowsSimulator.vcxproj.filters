@@ -1779,6 +1779,7 @@
     <ClInclude Include="ui\ui.h" />
     <ClInclude Include="ui\vars.h" />
     <ClInclude Include="events.h" />
+    <ClInclude Include="ui\screen_events\events_main_menu_screen.h" />
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="LvglWindowsSimulator.manifest" />
@@ -4031,6 +4032,7 @@
     <ClCompile Include="ui\ui.c" />
     <ClCompile Include="events.c" />
     <ClCompile Include="ui\images\logo.c" />
+    <ClCompile Include="ui\screen_events\events_main_menu_screen.c" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="freetype">
