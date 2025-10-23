@@ -1,4 +1,4 @@
-#include <string.h>
+﻿#include <string.h>
 
 #include "screens.h"
 #include "images.h"
@@ -7,8 +7,6 @@
 #include "vars.h"
 #include "styles.h"
 #include "ui.h"
-
-#include <string.h>
 
 objects_t objects;
 lv_obj_t *tick_value_change_obj;
@@ -103,20 +101,20 @@ void create_screen_videos_player_screen() {
     objects.videos_player_screen = obj;
     lv_obj_set_pos(obj, 0, 0);
     lv_obj_set_size(obj, 800, 480);
+    lv_obj_set_scrollbar_mode(obj, LV_SCROLLBAR_MODE_OFF);
     lv_obj_set_style_border_color(obj, lv_color_hex(0xff000000), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_border_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_add_event_cb(obj, action_play_video, LV_EVENT_SCREEN_LOADED, (void *)0);
+    lv_obj_add_event_cb(obj, action_play_video, LV_EVENT_SCREEN_LOAD_START, (void *)0);
 
     {
         lv_obj_t *parent_obj = obj;
         {
-            // Main Menu_1
+            // OSD_MENU
             lv_obj_t *obj = lv_tileview_create(parent_obj);
-            objects.main_menu_1 = obj;
+            objects.osd_menu = obj;
             lv_obj_set_pos(obj, 0, 390);
             lv_obj_set_size(obj, 800, 98);
-            lv_obj_add_event_cb(obj, action_open_videos_screen, LV_EVENT_PRESSED, (void *)0);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SCROLL_ONE|LV_OBJ_FLAG_SCROLL_WITH_ARROW);
             lv_obj_set_scrollbar_mode(obj, LV_SCROLLBAR_MODE_OFF);
             lv_obj_set_scroll_dir(obj, LV_DIR_NONE);
@@ -131,13 +129,14 @@ void create_screen_videos_player_screen() {
                 {
                     lv_obj_t *obj = lv_btn_create(parent_obj);
                     objects.obj0 = obj;
-                    lv_obj_set_pos(obj, 699, 13);
+                    lv_obj_set_pos(obj, 363, 12);
                     lv_obj_set_size(obj, 75, 75);
-                    lv_obj_add_event_cb(obj, action_open_videos_screen, LV_EVENT_PRESSED, (void *)0);
                     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
                     lv_obj_set_scrollbar_mode(obj, LV_SCROLLBAR_MODE_OFF);
                     lv_obj_set_style_bg_img_recolor(obj, lv_color_hex(0xfff20707), LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_bg_img_recolor_opa(obj, 55000, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_obj_add_event_cb(obj, action_osd_play, LV_EVENT_PRESSED, (void*)0);
+
                     {
                         lv_obj_t *parent_obj = obj;
                         {
@@ -145,9 +144,54 @@ void create_screen_videos_player_screen() {
                             lv_obj_set_pos(obj, 0, 0);
                             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                             lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
-                            lv_label_set_text(obj, "");
+                            lv_label_set_text(obj, "Play");
                         }
                     }
+                }
+            }
+        }
+        {
+            lv_obj_t *obj = lv_btn_create(parent_obj);
+            objects.obj1 = obj;
+            lv_obj_set_pos(obj, 117, 402);
+            lv_obj_set_size(obj, 75, 75);
+            lv_obj_add_event_cb(obj, action_open_videos_screen, LV_EVENT_PRESSED, (void *)0);
+            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
+            lv_obj_set_scrollbar_mode(obj, LV_SCROLLBAR_MODE_OFF);
+            lv_obj_set_style_bg_img_recolor(obj, lv_color_hex(0xfff20707), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_img_recolor_opa(obj, 55000, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_add_event_cb(obj, action_osd_pause, LV_EVENT_PRESSED, (void*)0);
+
+            {
+                lv_obj_t *parent_obj = obj;
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 0, 0);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "Pause");
+                }
+            }
+        }
+        {
+            lv_obj_t *obj = lv_btn_create(parent_obj);
+            objects.obj2 = obj;
+            lv_obj_set_pos(obj, 607, 402);
+            lv_obj_set_size(obj, 75, 75);
+            lv_obj_add_event_cb(obj, action_open_videos_screen, LV_EVENT_PRESSED, (void *)0);
+            lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_WITH_ARROW|LV_OBJ_FLAG_SNAPPABLE);
+            lv_obj_set_scrollbar_mode(obj, LV_SCROLLBAR_MODE_OFF);
+            lv_obj_set_style_bg_img_recolor(obj, lv_color_hex(0xfff20707), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_img_recolor_opa(obj, 55000, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_add_event_cb(obj, action_osd_stop, LV_EVENT_PRESSED, (void*)0);
+            {
+                lv_obj_t *parent_obj = obj;
+                {
+                    lv_obj_t *obj = lv_label_create(parent_obj);
+                    lv_obj_set_pos(obj, 0, 0);
+                    lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+                    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+                    lv_label_set_text(obj, "Stop");
                 }
             }
         }
@@ -168,7 +212,7 @@ void create_user_widget_video_buttons(lv_obj_t *parent_obj, int startWidgetIndex
             lv_obj_t *obj = lv_btn_create(parent_obj);
             lv_obj_set_pos(obj, -1, -1);
             lv_obj_set_size(obj, 800, 120);
-            lv_obj_add_event_cb(obj, action_open_videos_screen, LV_EVENT_PRESSED, (void *)0);
+            lv_obj_add_event_cb(obj, action_open_videos_screen, LV_EVENT_RELEASED, (void *)0);
             lv_obj_set_scrollbar_mode(obj, LV_SCROLLBAR_MODE_OFF);
             {
                 lv_obj_t *parent_obj = obj;

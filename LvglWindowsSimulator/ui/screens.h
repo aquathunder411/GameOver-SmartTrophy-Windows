@@ -1,4 +1,4 @@
-#ifndef EEZ_LVGL_UI_SCREENS_H
+﻿#ifndef EEZ_LVGL_UI_SCREENS_H
 #define EEZ_LVGL_UI_SCREENS_H
 
 #include <lvgl/lvgl.h>
@@ -10,9 +10,12 @@ extern "C" {
 typedef struct _objects_t {
     lv_obj_t *main_menu_screen;
     lv_obj_t *videos_select_screen;
-    lv_obj_t *videos_player_screen;
-    lv_obj_t *main_menu_1;
+    lv_obj_t* videos_player_screen;
+    lv_obj_t *osd_menu;
     lv_obj_t *obj0;
+    lv_obj_t *obj1;
+    lv_obj_t *obj2;
+    lv_obj_t *player;
 } objects_t;
 
 extern objects_t objects;

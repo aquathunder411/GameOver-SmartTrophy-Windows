@@ -154,6 +154,7 @@ void action_play_demo(lv_event_t* e)
 bool is_video_finished = false;
 char filePathBuffer[128];
 static int current_video_index = 0;
+objects_t* player;
 
 const char* playlist[] = {
 "video1.mp4",
@@ -166,7 +167,7 @@ NULL // Sentinel value to indicate the end of the playlist
 void action_play_video(lv_event_t* e)
 {
     
-    lv_obj_t* player = lv_ffmpeg_player_create(lv_layer_bottom());
+    player = lv_ffmpeg_player_create(lv_layer_bottom());
     sprintf(filePathBuffer, "%s%s", ".\\ui\\video\\", playlist[current_video_index]);
         
     lv_ffmpeg_player_set_src(player, filePathBuffer);
@@ -184,6 +185,24 @@ void action_play_video(lv_event_t* e)
     }
 
 }
+
+void action_osd_stop(lv_event_t* e)
+{
+    lv_ffmpeg_player_set_cmd(player, LV_FFMPEG_PLAYER_CMD_STOP);
+    loadScreen(SCREEN_ID_MAIN_MENU_SCREEN);
+    current_video_index = 0;
+}
+
+void action_osd_play(lv_event_t* e)
+{
+    lv_ffmpeg_player_set_cmd(player, LV_FFMPEG_PLAYER_CMD_RESUME);
+}
+
+void action_osd_pause(lv_event_t* e)
+{
+    lv_ffmpeg_player_set_cmd(player, LV_FFMPEG_PLAYER_CMD_PAUSE);
+}
+
 void initializeSDCard()
 {
    

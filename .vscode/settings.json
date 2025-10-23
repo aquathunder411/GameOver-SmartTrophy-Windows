@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "images.h": "c",
-        "lvgl.h": "c"
+        "lvgl.h": "c",
+        "events.h": "c",
+        "ui.h": "c"
     }
 }
