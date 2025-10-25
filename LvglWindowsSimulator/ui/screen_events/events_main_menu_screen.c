@@ -38,7 +38,6 @@ void action_check_wifi_status(lv_event_t * e)
         lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
         lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
         lv_label_set_text(obj, "WiFi Connected");
-        check_register_device();
     }
     else
     {

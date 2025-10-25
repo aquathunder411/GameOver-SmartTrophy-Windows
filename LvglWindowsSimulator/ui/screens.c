@@ -20,7 +20,8 @@ void create_screen_main_menu_screen() {
     lv_obj_set_pos(obj, 0, 0);
     lv_obj_set_size(obj, 800, 480);
     lv_obj_set_style_bg_color(obj, lv_color_hex(0xffffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_add_event_cb(obj, action_check_wifi_status, LV_EVENT_SCREEN_LOADED, (void *)0);
+    lv_obj_add_event_cb(obj, action_check_wifi_status, LV_EVENT_SCREEN_LOADED, (void *)0);        
+    check_register_device();
 
     {
         lv_obj_t *parent_obj = obj;
