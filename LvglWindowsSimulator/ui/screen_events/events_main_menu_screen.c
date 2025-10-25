@@ -2,6 +2,9 @@
 #include "../actions.h"
 #include "lvgl/lvgl.h"
 #include "stdio.h"
+#include "register_device.h"
+
+#include <stdio.h>    // For perror
 
 bool is_connected()
 {
@@ -11,7 +14,7 @@ bool is_connected()
     #if defined(_WIN32) //Windows
         printf("Compiling for Windows.\n");
         // Assuming this is the Simulator, so return is different for testing
-        return 0;
+        return 1;
     #elif defined(__linux__)
         printf("Compiling for Linux.\n");
     #elif defined(__APPLE__)
@@ -35,6 +38,7 @@ void action_check_wifi_status(lv_event_t * e)
         lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
         lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
         lv_label_set_text(obj, "WiFi Connected");
+        check_register_device();
     }
     else
     {

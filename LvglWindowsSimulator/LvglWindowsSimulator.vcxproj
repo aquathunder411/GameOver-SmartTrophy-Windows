@@ -36,7 +36,7 @@
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <PreprocessorDefinitions>LV_CONF_INCLUDE_SIMPLE;LV_LVGL_H_INCLUDE_SIMPLE;LV_USE_DEV_VERSION;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Optimization Condition="'$(Configuration)'=='Release'">MinSpace</Optimization>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rober\Documents\GameOver\GameOver-SmartTrophy-Windows\FFmpeg-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\rober\Documents\GameOver\GameOver-SmartTrophy-Windows\FFmpeg-master;C:\curl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\rober\Documents\GameOver\GameOver-SmartTrophy-Windows\FFmpeg-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <PreBuildEvent>
@@ -52,8 +52,8 @@
       </Command>
     </PreLinkEvent>
     <Link>
-      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\FFmpeg\lib;C:\FFmpeg\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">avcodec.lib;avformat.lib;avutil.lib;swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\FFmpeg\lib;C:\curl\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">avcodec.lib;avformat.lib;avutil.lib;swscale.lib;libcurl.dll.a;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Link>
       <AdditionalLibraryDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\FFmpeg\lib;</AdditionalLibraryDirectories>
@@ -654,6 +654,7 @@
     <ClInclude Include="events.h" />
     <ClInclude Include="lv_conf.h" />
     <ClInclude Include="ui\actions.h" />
+    <ClInclude Include="ui\cJSON.h" />
     <ClInclude Include="ui\fonts.h" />
     <ClInclude Include="ui\images.h" />
     <ClInclude Include="ui\screens.h" />
@@ -3653,12 +3654,14 @@
     </ClCompile>
     <ClCompile Include="events.c" />
     <ClCompile Include="LvglWindowsSimulator.cpp" />
+    <ClCompile Include="ui\cJSON.c" />
     <ClCompile Include="ui\images.c" />
     <ClCompile Include="ui\images\logo.c" />
     <ClCompile Include="ui\images\ui_image_video_button.c" />
     <ClCompile Include="ui\mpegPlayer.c" />
     <ClCompile Include="ui\screens.c" />
     <ClCompile Include="ui\screen_events\events_main_menu_screen.c" />
+    <ClCompile Include="ui\screen_events\register_device.c" />
     <ClCompile Include="ui\styles.c" />
     <ClCompile Include="ui\ui.c" />
   </ItemGroup>
