@@ -4,17 +4,7 @@
 #include <sys/stat.h>
 #include <curl/curl.h>
 #include <ui/cJSON.h>
-
-#define DEVICE_STATUS_FILE "serverData/device_status.json"
-#define CERTIFICATES_DIR   "serverData/certificates"
-#define REGISTER_API_URL   "http://52.66.24.161:5000/registerDevice"
-#define REGISTER_USER_API_URL "http://52.66.24.161:8000/api/iot/device/add"
-
-// --------------------- Helper: Curl Response Buffer -----------------------
-struct MemoryStruct {
-    char *memory;
-    size_t size;
-};
+#include "register_device.h"
 
 static size_t WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp) {
     size_t realsize = size * nmemb;
