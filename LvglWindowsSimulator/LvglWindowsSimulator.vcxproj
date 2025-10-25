@@ -3656,7 +3656,7 @@
     <ClCompile Include="LvglWindowsSimulator.cpp" />
     <ClCompile Include="ui\cJSON.c" />
     <ClCompile Include="ui\images.c" />
-    <ClCompile Include="ui\images\logo.c" />
+    <ClCompile Include="ui\images\ui_image_logo.c" />
     <ClCompile Include="ui\images\ui_image_video_button.c" />
     <ClCompile Include="ui\mpegPlayer.c" />
     <ClCompile Include="ui\screens.c" />

@@ -4032,10 +4032,10 @@
     <ClCompile Include="ui\styles.c" />
     <ClCompile Include="ui\ui.c" />
     <ClCompile Include="events.c" />
-    <ClCompile Include="ui\images\logo.c" />
     <ClCompile Include="ui\screen_events\events_main_menu_screen.c" />
     <ClCompile Include="ui\screen_events\register_device.c" />
     <ClCompile Include="ui\cJSON.c" />
+    <ClCompile Include="ui\images\ui_image_logo.c" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="freetype">
